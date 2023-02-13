@@ -53,8 +53,8 @@ def getScoreUtilisateur(numeroUtilisateur):
     return prediction
 
    
-#if __name__ == '__main__':
-#    app.run(port=5000, debug=True)
+if __name__ == '__main__':
+    app.run(port=port, debug=True)
 
 @app.route("/")
 def hello_world():
