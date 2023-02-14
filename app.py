@@ -10,7 +10,7 @@ import unittest
 app = Flask(__name__)
 
 #Définition chemin d'accès aux fichiers
-PATH='C:/Users/valev/Projet-7/repo_git_api/'
+#PATH='C:/Users/valev/Projet-7/repo_git_api/'
 
 #Test unitaire qui vérifie si la prédiction renvoyée par la fonction est bien une valeur entre 0 et 1
 #def value_predict(self):
@@ -19,7 +19,7 @@ PATH='C:/Users/valev/Projet-7/repo_git_api/'
 #    return False
 
 # Load data
-read_csv = pd.read_csv(PATH+'sampled.csv',delimiter= ',')
+read_csv = pd.read_csv('sampled.csv',delimiter= ',')
 #read_csv=read_csv.drop(columns='index')
 read_csv.set_index("SK_ID_CURR", drop=False, inplace=True)
 print (read_csv)
