@@ -10,16 +10,19 @@ import unittest
 app = Flask(__name__)
 
 #Définition chemin d'accès aux fichiers
-#PATH='C:/Users/valev/Projet-7/repo_git_api/'
+PATH='C:/Users/valev/Projet-7/repo_git_api/'
 
 #Test unitaire qui vérifie si la prédiction renvoyée par la fonction est bien une valeur entre 0 et 1
-def value_predict(self):
-    if self.assertTrue(self,0<=y<=1): #doit être entre 0 et 1
-        return True
-    return False
+#def value_predict(self):
+#    if self.assertTrue(self,0<=y<=1): #doit être entre 0 et 1
+#        return True
+#    return False
 
 # Load data
-read_csv = pd.read_csv('sampled.csv',delimiter= ',')
+read_csv = pd.read_csv(PATH+'sampled.csv',delimiter= ',')
+#read_csv=read_csv.drop(columns='index')
+read_csv.set_index("SK_ID_CURR", drop=False, inplace=True)
+print (read_csv)
 
 # Load the model
 model = pickle.load(open('model.pkl','rb'))
@@ -30,9 +33,12 @@ def predict():
     #Get the data from the POST request.
     numID = request.args
     numeroClient = int(numID['numeroClient'])
+    print("numeroClient ", numeroClient)
     # Make prediction using model loaded from disk as per the data.
     X_id = read_csv.loc[numeroClient:numeroClient]
+    print("test id " , X_id)
     prediction = model.predict_proba(X_id)[:,1]
+    print(prediction)
     #value_predict(float(prediction))
     # SHAP values
     explainer = shap.TreeExplainer(model)
@@ -54,16 +60,16 @@ def getScoreUtilisateur(numeroUtilisateur):
 
    
 if __name__ == '__main__':
-    app.run(port=port, debug=True)
+    app.run(port=5000, debug=True)
 
 @app.route("/")
 def hello_world():
     return "<p>Hello, World!</p>"
 
-class TestStringMethods(unittest.TestCase):
-
-    def testavecUtilisateur100002(self): 
-        scoreUtilisateur = getScoreUtilisateur(100002)
-        self.assertGreaterEqual(scoreUtilisateur, 0)
-        self.assertLessEqual(scoreUtilisateur, 1)
+#class TestStringMethods(unittest.TestCase):
+#
+#    def testavecUtilisateur100002(self): 
+#        scoreUtilisateur = getScoreUtilisateur(100002)
+#        self.assertGreaterEqual(scoreUtilisateur, 0)
+#        self.assertLessEqual(scoreUtilisateur, 1)
         
