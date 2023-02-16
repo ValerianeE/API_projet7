@@ -2,7 +2,7 @@
 import pandas as pd
 from flask import Flask, request
 import pickle
-import shap
+import shap 
 
 app = Flask(__name__)
 
