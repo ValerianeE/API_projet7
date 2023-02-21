@@ -25,4 +25,4 @@ Deux dépôts Github ont été créés pour ce projet. Ce dépôt, « API_proje
 - sampled.csv est un fichier de données lui aussi importé lors du lancement
 - Les autres fichiers présents dans ce dépôt servent au déploiement de l'API
 
-Dans l'API, la fonction predict() permet de récupérer la probabilité de faillite d'un client pour rembourser son prêt à partie de son numéro identifiant, ainsi qu'une partie des SHAP Values nécessaires pour certains graphiques dans le dashboard.
+Dans l'API, la fonction predict() permet de récupérer la probabilité de faillite d'un client pour rembourser son prêt à partir de son numéro identifiant, ainsi qu'une partie des SHAP Values nécessaires pour certains graphiques dans le dashboard.
