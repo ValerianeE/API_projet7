@@ -2,12 +2,9 @@
 import pandas as pd
 from flask import Flask, request
 import pickle
-import shap 
+import shap
 
 app = Flask(__name__)
-
-#Définition chemin d'accès aux fichiers
-#PATH='C:/Users/valev/Projet-7/repo_git_api/'
 
 # Load data
 read_csv = pd.read_csv('sampled.csv',delimiter= ',')
@@ -36,7 +33,7 @@ def predict():
     ev=explainer.expected_value[0]
     return  '[{},{},{}]'.format(float(prediction), 
                                         sv.to_json(), 
-                                        ev,) 
+                                        ev) 
 
 def getScoreUtilisateur(numeroUtilisateur):
     # Make prediction using model loaded from disk as per the data.
