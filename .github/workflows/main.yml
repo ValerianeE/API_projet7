@@ -22,7 +22,7 @@ jobs:
       run: |
          python -m unittest 
 
-  build:
+  deploy:
     needs: test
     runs-on: ubuntu-latest
     steps:
